@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('BuildStage') {
+            steps {
+                echo 'Building.. Your first stage'
+            }
+        }
+        stage('TestStage') {
+            steps {
+                echo 'Build completed Testing it now......'
+            }
+        }
+        stage('DeployStage') {
+            steps {
+                echo 'No Errors detected. Deploying....'
+            }
+        }
+	stage('PostdeployStage') {
+		steps {
+			echo 'Postdeployment phase....'
+		}
+	}
+    }
+}
