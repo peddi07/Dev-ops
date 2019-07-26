@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+    stages {
+        stage('DeployStage') {
+            steps {
+                retry(5) {
+                    sh './script.sh'
+                }
+
+                timeout(time: 2, unit: 'MINUTES') {
+                    sh './health-status.sh'
+                }
+            }
+        }
+    }
+}
